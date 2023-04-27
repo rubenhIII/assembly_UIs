@@ -1,0 +1,470 @@
+Modo de empleo: ld [opciones] fichero...
+Opciones:
+  -a PALABRA CLAVE            Control de biblioteca compartida para compatibilidad con HP/UX
+  -A ARQ, --architecture ARQ  Establece la arquitectura
+  -b OBJETIVO, --format OBJETIVO
+                              Especifica el objetivo para los siguientes ficheros de entrada
+  -c FICHERO, --mri-script FICHERO
+                              Lee el guión del enlazador de formato MRI
+  -d, -dc, -dp                Fuerza que se definan los símbolos comunes
+  --dependency-file FICHERO   Write dependency file
+  --force-group-allocation    Force group members out of groups
+  -e DIRECCIÓN, --entry DIRECCIÓN
+                              Establece la dirección de inicio
+  -E, --export-dynamic        Exporta todos los símbolos dinámicos
+  --no-export-dynamic         Deshace el efecto de --export-dynamic
+  --enable-non-contiguous-regions
+                              Enable support of non-contiguous memory regions
+  --enable-non-contiguous-regions-warnings
+                              Enable warnings when --enable-non-contiguous-regions may cause unexpected behaviour
+  -EB                         Enlaza objetos big-endian
+  -EL                         Enlaza objetos little-endian
+  -f BIBCOMP, --auxiliary BIBCOMP
+                              Filtro auxiliar para la tabla de símbolos de objetos compartidos
+  -F BIBCOMP, --filter BIBCOMP
+                              Filtro para la tabla de símbolos de objetos compartidos
+  -g                          Se descarta
+  -G TAMAÑO, --gpsize TAMAÑO
+                              Tamaño de los datos small (si no se especifica, es el mismo que --shared)
+  -h FICHERO, -soname FICHERO Establece el nombre interno de la biblioteca compartida
+  -I PROGRAMA, --dynamic-linker PROGRAMA
+                              Establece el PROGRAMA como el enlazador dinámico a utilizar
+  --no-dynamic-linker         Produce un ejecutable sin cabecera de intérprete de programa
+  -l NOMBREBIB, --library NOMBREBIB
+                              Busca la biblioteca NOMBREBIB
+  -L DIRECTORIO, --library-path DIRECTORIO
+                              Agrega el DIRECTORIO a la ruta de búsqueda de bibliotecas
+  --sysroot=<DIRECTORY>       Sobreescribe la ubicación de sysroot por defecto
+  -m EMULACIÓN               Establece la emulación
+  -M, --print-map             Muestra el fichero mapa en la salida estándar
+  -n, --nmagic                No pagina los datos alineados
+  -N, --omagic                No pagina los datos alineados, no hace el texto de sólo lectura
+  --no-omagic                 Pagina los datos alineados, hace el texto de sólo lectura
+  -o FICHERO, --output FICHERO
+                              Establece el nombre del fichero de salida
+  -O                          Optimiza la salida del fichero
+  --out-implib FICHERO        Genera biblioteca de importación
+  -plugin PLUGIN              Carga el plugin nombrado
+  -plugin-opt ARG             Envía el argumento al último plugin cargado
+  -flto                       Se descarta por compatibilidad con LTO de GCC
+  -flto-partition=            Se descarta por compatibilidad con LTO de GCC
+  -fuse-ld=                   Se descarta por compatibilidad con opción del enlazador de GCC
+  --map-whole-files           Se descarta por compatibilidad con opción oro de GCC
+  --no-map-whole-files        Se descarta por compatibilidad con opción oro de GCC
+  -Qy                         Se descarta por compatibilidad con SVR4
+  -q, --emit-relocs           Generate relocations in final output
+  -r, -i, --relocatable       Genera salida reubicable
+  -R FICHERO, --just-symbols FICHERO
+                              Sólo enlaza símbolos (si es un directorio, es igual que --rpath)
+  -s, --strip-all             Descarta todos los símbolos
+  -S, --strip-debug           Descarta los símbolos de depuración
+  --strip-discarded           Descarta símbolos en las secciones descartadas
+  --no-strip-discarded        No descarta símbolos en las secciones descartadas
+  -t, --trace                 Rastrea la apertura de ficheros
+  -T FICHERO, --script FICHERO
+                              Lee el guión del enlazador
+  --default-script FICHERO, -dT
+                              Lee el guión del enlazador por defecto
+  -u SÍMBOLO, --undefined SÍMBOLO
+                              Inicia con una referencia sin definir hacia el SÍMBOLO
+  --require-defined SÍMBOLO  Requiere que se defina SÍMBOLO en la salida final
+  --unique [=SECCIÓN]        No mezcla secciones de entrada [SECCIÓN | huérfanas]
+  -Ur                         Construye tablas globales de constructores/destructores
+  -v, --version               Muestra la información de la versión
+  -V                          Muestra la información de la versión y de la emulación
+  -x, --discard-all           Descarta todos los símbolos locales
+  -X, --discard-locals        Descarta los símbolos locales temporales (por defecto)
+  --discard-none              No descarta ningún símbolo local
+  -y SÍMBOLO, --trace-symbol SÍMBOLO
+                              Rastrea las menciones del SÍMBOLO
+  -Y RUTA                     Ruta de búsqueda por defecto para compatibilidad con Solaris
+  -(, --start-group           Inicia un grupo
+  -), --end-group             Termina un grupo
+  --accept-unknown-input-arch Acepta ficheros de entrada cuya arquitectura no se pueda determinar
+  --no-accept-unknown-input-arch
+                              Rechaza ficheros de entrada cuya arquitectura es desconocida
+  --as-needed                 Sólo establece DT_NEEDED para las siguientes bibliotecas dinámicas si se usan
+  --no-as-needed              Siempre establece DT_NEEDED para las bibliotecas dinámicas
+                                mencionadas en la línea de órdenes
+  -assert PALABRA CLAVE       Se descarta por compatibilidad con SunOS
+  -Bdynamic, -dy, -call_shared
+                              Enlaza contra bibliotecas compartidas
+  -Bstatic, -dn, -non_shared, -static
+                              No enlaza contra bibliotecas compartidas
+  -Bsymbolic                  Asocia localmente las referencias globlales
+  -Bsymbolic-functions        Asocia localmente las referencias a función globales
+  --check-sections            Revisa las direcciones de las secciones por traslapes (por defecto)
+  --no-check-sections         No revisa las direcciones de las secciones por traslapes
+  --copy-dt-needed-entries    Copia los enlaces DT_NEEDED mencionados dentro de los DSOs a continuación
+  --no-copy-dt-needed-entries No copia los enlaces DT_NEEDED mencionados dentro de los DSOs a continuación
+  --cref                      Muestra la tabla de referencias cruzadas
+  --defsym SÍMBOLO=EXPRESIÓN
+                              Define un símbolo
+  --demangle [=ESTILO]        Desenreda los nombres de los símbolos [utilizando el ESTILO]
+  --disable-multiple-abs-defs No permite definiciones múltiples con símbolos incluidos
+           en el nombre de fichero invocado por -R o --just-symbols
+  --embedded-relocs           Genera reubicaciones imbuídas
+  --fatal-warnings            Trata los avisos como errores
+  --no-fatal-warnings         No trata los avisos como errores (por defecto)
+  -fini SÍMBOLO              Llama al SÍMBOLO al momento de descargar
+  --force-exe-suffix          Fuerza la generación del fichero con sufijo .exe
+  --gc-sections               Elimina las secciones sin uso (en algunos objetivos)
+  --no-gc-sections            No elimina las secciones sin uso (por defecto)
+  --print-gc-sections         Muestra las secciones sin uso eliminadas en la salida de error estándar
+  --no-print-gc-sections      No muestra las secciones sin uso eliminadas
+  --gc-keep-exported          Mantiene los símbolos exportados cuando se quitan secciones sin uso
+  --hash-size=<NUMBER>        Establece el tamaño de de la tabla de dispersión cercano al <NÚMERO>
+  --help                      Muestra la ayuda de opciones
+  -init SÍMBOLO              Llama al SÍMBOLO al momento de cargar
+  -Map FILE/DIR               Write a linker map to FILE or DIR/<outputname>.map
+  --no-define-common          No define almacenamiento Common
+  --no-demangle               No desenreda los nombres de los símbolos
+  --no-keep-memory            Usa menos memoria y más E/S de disco
+  --no-undefined              No permite referencias sin resolver en ficheros objeto
+  --allow-shlib-undefined     Permite referencias sin resolver en bibliotecas compartidas
+  --no-allow-shlib-undefined  No permite referencias sin resolver en bibliotecas compartidas
+  --allow-multiple-definition Permite definiciones múltiples
+  --no-undefined-version      No permite versiones sin definir
+  --default-symver            Crea la versión de símbolo por defecto
+  --default-imported-symver   Crea la versión de símbolo por defecto para símbolos importados
+  --no-warn-mismatch          No avisa sobre ficheros de entrada sin coincidencia
+  --no-warn-search-mismatch   No avisa al encontrar una biblioteca incompatible
+  --no-whole-archive          Apaga --whole-archive
+  --noinhibit-exec            Crea un fichero de salida aún si ocurren errores
+  -nostdlib                   Utiliza solamente los directorios de bibliotecas
+                                especificados en la línea de órdenes
+  --oformat OBJETIVO          Especifica el objetivo del fichero de salida
+  --print-output-format       Muestra el formato de salida por defecto
+  --print-sysroot             Muestra el sysroot actual
+  -qmagic                     Se descarta por compatibilidad con Linux
+  --reduce-memory-overheads   Reduce las saturaciones de memoria, tal vez tomando más tiempo
+  --relax                     Reduce el tamaño del código usando optimizaciones específicas del objetivo
+  --no-relax                  No utiliza técnicas de relajación para reducir el tamaño del código
+  --retain-symbols-file FICHERO
+                              Conserva solamente los símbolos enlistados en el FICHERO
+  -rpath RUTA                 Establece la ruta de búsqueda de bibliotecas compartidas en tiempo de ejecución
+  -rpath-link RUTA            Establece la ruta de búsqueda de bibliotecas compartidas en tiempo de enlace
+  -shared, -Bshareable        Crea una biblioteca compartida
+  -pie, --pic-executable      Crea un ejecutable independiente de posición
+  --sort-common [=ascending|descending]
+                              Ordena los símbolos comunes por alineación [en orden específico]
+  --sort-section nombre|alineación
+                              Ordena secciones por nombre o alineación máxima
+  --spare-dynamic-tags CUENTA Cúantas marcas reserva en la sección .dynamic
+  --split-by-file [=TAMAÑO]  Divide las secciones de salida cada TAMAÑO octetos
+  --split-by-reloc [=CUENTA]  Divide las secciones de salida cada CUENTA reubicaciones
+  --stats                     Muestra las estadísticas de uso de memoria
+  --target-help               Muestra las opciones específicas del objetivo
+  --task-link SÍMBOLO        Enlaza a nivel de tarea
+  --traditional-format        Usa el mismo formato que el enlazador nativo
+  --section-start SECCIÓN=DIRECCIÓN
+                              Establece la dirección de la sección nombrada
+  -Tbss DIRECCIÓN            Establece la dirección de la sección .bss
+  -Tdata DIRECCIÓN           Establece la dirección de la sección .data
+  -Ttext DIRECCIÓN           Establece la dirección de la sección .text
+  -Ttext-segment DIRECCIÓN   Establece la dirección del segmento de texto
+  -Trodata-segment DIRECCIÓN Establece la dirección del segmento de datos de solo lectura
+  -Tldata-segment DIRECCIÓN  Establece la dirección del segmento de datos (ldata)
+  --unresolved-symbols=<method>
+                              Cómo manejar símbolos sin resolver. <método> es:
+                                ignore-all, report-all, ignore-in-object-files,
+                                ignore-in-shared-libs
+  --verbose [=NÚMERO]        Muestra mucha información durante el enlace
+  --version-script FICHERO    Lee la información de la versión del guión
+  --version-exports-section SÍMBOLO
+                              Toma la lista de exportación de símbolos de .exports, usando
+                                el SÍMBOLO como la versión.
+  --dynamic-list-data         Agrega símbolos de datos a la lista dinámica
+  --dynamic-list-cpp-new      Usa la lista dinámica de los operadores de C++ new/delete
+  --dynamic-list-cpp-typeinfo Usa la lista dinámica de tipo de dato de C++
+  --dynamic-list FICHERO      Lee la lista dinámica
+  --export-dynamic-symbol SÍMBOLO
+                              Export the specified symbol
+  --export-dynamic-symbol-list FICHERO
+                              Read export dynamic symbol list
+  --warn-common               Avisa sobre símbolos comunes duplicados
+  --warn-constructors         Avisa si se ven constructores/destructores globales
+  --warn-multiple-gp          Avisa si se usan valores múltiples de GP
+  --warn-once                 Avisa sólo una vez por cada símbolo sin definir
+  --warn-section-align        Avisa si el inicio de la sección cambia debido a la alineación
+  --warn-textrel              Warn if outpout has DT_TEXTREL (default)
+  --warn-alternate-em         Avisa si el objeto tiene código máquina ELF alternativo
+  --warn-unresolved-symbols   Reporta símbolos sin resolver como avisos
+  --error-unresolved-symbols  Reporta símbolos sin resolver como errores
+  --whole-archive             Incluye todos los objetos de los siguientes ficheros
+  --wrap SÍMBOLO             Usa funciones de envoltura para el SÍMBOLO
+  --ignore-unresolved-symbol SÍMBOLO
+                              SÍMBOLO no resuelto no provocará error ni aviso
+  --push-state                Apila («push») el estado de los indicadores que gobiernan el manejo del fichero de entrada
+  --pop-state                 Retira («pop») el estado de los indicadores que gobiernan el manejo del fichero de entrada
+  --print-memory-usage        Informa sobre el uso de memoria del objetivo
+  --orphan-handling =MODO     Controla cómo manejar las secciones huérfanas
+  --print-map-discarded       Muestra secciones descartadas en la salida del fichero de mapa (opción predefinida)
+  --no-print-map-discarded    No muestra secciones descartadas en la salida del fichero de mapa
+  @FICHERO                       Lee opciones del FICHERO
+ld: objetivos admitidos: elf64-x86-64 elf32-i386 elf32-iamcu elf32-x86-64 pei-i386 pei-x86-64 elf64-l1om elf64-k1om elf64-little elf64-big elf32-little elf32-big pe-x86-64 pe-bigobj-x86-64 pe-i386 srec symbolsrec verilog tekhex binary ihex plugin
+ld: emulaciones admitidas: elf_x86_64 elf32_x86_64 elf_i386 elf_iamcu elf_l1om elf_k1om i386pep i386pe
+ld: opciones específicas de emulación:
+Emulaciones ELF:
+  --ld-generated-unwind-info  Genera información de manejo de excepciones
+                              para PLT
+  --no-ld-generated-unwind-info
+                              No genera información de manejo de excepción para
+PLT
+  --build-id[=ESTILO]         Genera nota de ID de «build»
+  --compress-debug-sections=[none|zlib|zlib-gnu|zlib-gabi]
+                              Comprime las secciones de depuración DWARF
+                              mediante zlib
+                                Default: none
+  -z common-page-size=TAMAÑO  Establece el tamaño de página común a TAMAÑO
+  -z max-page-size=TAMAÑO     Establece el tamaño de página máximo a TAMAÑO
+  -z defs                     Informa sobre símbolos no resueltos en los
+                              ficheros objeto
+  -z muldefs                  Permite definiciones múltiples
+  -z execstack                Indica que el ejecutable requiere pila de
+                              ejecutable
+  -z noexecstack              Indica que el ejecutable no requiere pila de
+                              ejecutable
+  -z globalaudit              Indica que el ejecutable requiere auditoría global
+  --audit=AUDITLIB            Especifica una biblioteca para auditoría
+  -Bgroup                     Selecciona las reglas de búsqueda de nombre de grupo para DSO
+  --disable-new-dtags         Desactiva etiquetas dinámicas nuevas
+  --enable-new-dtags          Activa etiquetas dinámicas nuevas
+  --eh-frame-hdr              Crea sección .eh_frame_hdr
+  --no-eh-frame-hdr           No crea sección .eh_frame_hdr
+  --exclude-libs=LIBS         Hace ocultos todos los símbolos en LIBS
+  --hash-style=STYLE          Set hash style to sysv/gnu/both.  Default: both
+  -P AUDITLIB, --depaudit=AUDITLIB
+                              Especifica una biblioteca para auditar dependencias
+  -z combreloc                Funde las reubicaciones dinámicas en una sola
+                              sección y las ordena
+  -z nocombreloc              No funde las reubicaciones dinámicas en una
+                              sola sección
+  -z global                   Make symbols in DSO available for subsequently
+                                loaded objects
+  -z initfirst                Marca el DSO para ser inicialiado al principio
+                              en tiempo de ejecución
+  -z interpose                Marca el objeto para interponer todos los DSOs
+                              menos los ejecutables
+  -z lazy                     Señala enlace perezoso de objetos en tiempo
+                              de ejecución (opción predefinida)
+  -z loadfltr                 Indica que el objeto requiere procesamiento inmediato
+  -z nocopyreloc              No crea reubicaciones copia
+  -z nodefaultlib             Indica que el objeto no utilizará rutas de búsqueda predeterminadas
+  -z nodelete                 Indica que el DSO no es borrable en tiempo de ejecución
+  -z nodlopen                 Indica que el DSO no está disponible para dlopen
+  -z nodump                   Indica que el DSO no está disponible para dldump
+  -z now                      Señala enlace no perezoso de objetos en tiempo de ejecución
+  -z origin                   Indica que el objeto requiere procesamiento
+                                inmediato de $ORIGEN en tiempo de ejecución
+  -z relro                    Crea cabecera de programa RELRO (opción predefinida)
+  -z norelro                  No crea cabecera de programa RELRO
+  -z separate-code            Crea cabecera de programa de código separado
+                              (opción predefinida)
+  -z noseparate-code          No crea cabecera de programa de código separado
+  -z common                   Genera símbolos comunes con el tipo STT_COMMON
+  -z nocommon                 Genera símbolos comunes con el tipo STT_OBJECT
+  -z stack-size=TAMAÑO        Establece el tamaño de segmento de la pila
+  -z text                     Treat DT_TEXTREL in output as error
+  -z notext                   Don't treat DT_TEXTREL in output as error
+  -z textoff                  Don't treat DT_TEXTREL in output as error
+elf_x86_64: 
+  -z noextern-protected-data  No trata los símbolos de datos protegidos como externos
+  -z dynamic-undefined-weak   Hace dinámicos los símbolos débiles indefinidos
+  -z nodynamic-undefined-weak No hace dinámicos los símbolos débiles indefinidos
+  -z noreloc-overflow         Desactiva la comprobación de desbordamiento
+                                por reubicación
+  -z call-nop=RELLENO         Utiliza RELLENO como NOP de 1 byte para
+                                bifurcación
+  -z ibtplt                   Generate IBT-enabled PLT entries
+  -z ibt                      Genera GNU_PROPERTY_X86_FEATURE_1_IBT
+  -z shstk                    Genera GNU_PROPERTY_X86_FEATURE_1_SHSTK
+  -z cet-report=[none|warning|error] (default: none)
+                              Report missing IBT and SHSTK properties
+  -z bndplt                   Genera siempre prefijo BND en las entradas PLT
+elf32_x86_64: 
+  -z noextern-protected-data  No trata los símbolos de datos protegidos como externos
+  -z dynamic-undefined-weak   Hace dinámicos los símbolos débiles indefinidos
+  -z nodynamic-undefined-weak No hace dinámicos los símbolos débiles indefinidos
+  -z noreloc-overflow         Desactiva la comprobación de desbordamiento
+                                por reubicación
+  -z call-nop=RELLENO         Utiliza RELLENO como NOP de 1 byte para
+                                bifurcación
+  -z ibtplt                   Generate IBT-enabled PLT entries
+  -z ibt                      Genera GNU_PROPERTY_X86_FEATURE_1_IBT
+  -z shstk                    Genera GNU_PROPERTY_X86_FEATURE_1_SHSTK
+  -z cet-report=[none|warning|error] (default: none)
+                              Report missing IBT and SHSTK properties
+elf_i386: 
+  -z noextern-protected-data  No trata los símbolos de datos protegidos como externos
+  -z dynamic-undefined-weak   Hace dinámicos los símbolos débiles indefinidos
+  -z nodynamic-undefined-weak No hace dinámicos los símbolos débiles indefinidos
+  -z call-nop=RELLENO         Utiliza RELLENO como NOP de 1 byte para
+                                bifurcación
+  -z ibtplt                   Generate IBT-enabled PLT entries
+  -z ibt                      Genera GNU_PROPERTY_X86_FEATURE_1_IBT
+  -z shstk                    Genera GNU_PROPERTY_X86_FEATURE_1_SHSTK
+  -z cet-report=[none|warning|error] (default: none)
+                              Report missing IBT and SHSTK properties
+elf_iamcu: 
+  -z noextern-protected-data  No trata los símbolos de datos protegidos como externos
+  -z dynamic-undefined-weak   Hace dinámicos los símbolos débiles indefinidos
+  -z nodynamic-undefined-weak No hace dinámicos los símbolos débiles indefinidos
+  -z call-nop=RELLENO         Utiliza RELLENO como NOP de 1 byte para
+                                bifurcación
+elf_l1om: 
+  -z noextern-protected-data  No trata los símbolos de datos protegidos como externos
+  -z dynamic-undefined-weak   Hace dinámicos los símbolos débiles indefinidos
+  -z nodynamic-undefined-weak No hace dinámicos los símbolos débiles indefinidos
+  -z call-nop=RELLENO         Utiliza RELLENO como NOP de 1 byte para
+                                bifurcación
+elf_k1om: 
+  -z noextern-protected-data  No trata los símbolos de datos protegidos como externos
+  -z dynamic-undefined-weak   Hace dinámicos los símbolos débiles indefinidos
+  -z nodynamic-undefined-weak No hace dinámicos los símbolos débiles indefinidos
+  -z call-nop=RELLENO         Utiliza RELLENO como NOP de 1 byte para
+                                bifurcación
+i386pep: 
+  --base_file <ficherobase>          Genera un fichero base para DLLs reubicables
+  --dll                              Establece la imagen base por defecto para las DLLs
+  --file-alignment <tamaño>          Establece el fichero de alineación
+  --heap <tamaño>                    Establece el tamaño inicial del montón
+  --image-base <dirección>           Establece la dirección de inicio del ejecutable
+  --major-image-version <número>     Establece el número de versión del ejecutable
+  --major-os-version <número>        Establece la versión mínima requerida del SO
+  --major-subsystem-version <número> Establece la versión mínima requerida del subsistema del SO
+  --minor-image-version <número>     Establece el número de revisión del ejecutable
+  --minor-os-version <número>        Establece la revisión mínima requerida del SO
+  --minor-subsystem-version <número> Establece la revisión mínima requerida del subsistema del SO
+  --section-alignment <tamaño>       Establece la alineación de la sección
+  --stack <size>                     Establece el tamaño de la pila inicial
+  --subsystem <nombre>[:<versión>]   Establece el subsistema [y versión] requeridos del SO
+  --support-old-code                 Admite interoperar con código antiguo
+  --[no-]leading-underscore          Establece el modo explícito de prefijo de símbolo con subrayado
+  --[no-]insert-timestamp            Utiliza marca de tiempo real en lugar de cero (opción predefinida)
+                                     Produce binarios no deterministas
+  --add-stdcall-alias                Exporta símbolos con y sin @nn
+  --disable-stdcall-fixup            No enlaza _sym con _sym@nn
+  --enable-stdcall-fixup             Enlaza _sym con _sym@nn sin avisos
+  --exclude-symbols sim,sim,...      Excluye símbolos de la exportación automática
+  --exclude-all-symbols              Excluye todos los símbolos de la exportación automática
+  --exclude-libs bib,bib,...         Excluye bibliotecas de la exportación automática
+  --exclude-modules-for-implib mod,mod,...
+                                     Excluye objetos, miembros de archivo de la exportación
+                                     export, place into import library instead
+  --export-all-symbols               Exporta automáticamente todos los globales a la DLL
+  --kill-at                          Elimina @nn de los símbolos exportados
+  --output-def <fichero>             Genera un fichero .DEF para la DLL construida
+  --warn-duplicate-exports           Avisa sobre exportaciones duplicadas
+  --compat-implib                    Crea bibliotecas de importación compatibles hacia atrás;
+                                       crea además __imp_<SÍMBOLO>
+  --enable-auto-image-base           Escoge automáticamente la base de la imagen para
+                                       las DLLs salvo que el usuario especifique una
+  --disable-auto-image-base          No escoge automáticamente una imagen base (por defecto)
+  --dll-search-prefix=<cadena>       Al enlazar dinámicamente con una dll sin una
+                                       biblioteca de importación, usa <cadena><nombrebase>.dll 
+                                       en lugar de lib<nombrebase>.dll 
+  --enable-auto-import               Hace enlazado sofisticado de _sym a
+                                       __imp_sym para las referencias DATA
+  --disable-auto-import              No importa automáticamente elementos DATA de las DLLs
+  --enable-runtime-pseudo-reloc      Evita limitaciones de autoimportación
+                                       agregando pseudo-reubicaciones resueltas
+                                       al momento de ejecución
+  --disable-runtime-pseudo-reloc     No agrega pseudo-reubicaciones al momento
+                                       de ejecución para DATOS autoimportados
+  --enable-extra-pep-debug            Activa la salida de depuración detallada al construir
+                                       o enlazar a DLLs (en part. con auto-importación)
+  --enable-long-section-names        Usa nombres de sección COFF largos aún
+                                      en ficheros de imágenes ejecutables
+  --disable-long-section-names       Nunca usa nombres de sección COFF largos,
+                                       aún en ficheros objeto
+  --high-entropy-va                  Image is compatible with 64-bit address space
+                                       layout randomization (ASLR)
+  --dynamicbase                      La dirección base de la imagen se puede
+                                       reubicar usando la disposición aleatoria
+                                       del espacio de direcciones (en inglés: ASLR)
+  --enable-reloc-section             Crea la tabla de reubicación de base
+  --forceinteg               Activa la revisión de integridad de código
+  --nxcompat                 La imagen es compatible con la prevención de ejecución de datos
+  --no-isolation             La imagen entiende aislamiento, pero no aísla la imagen
+  --no-seh                   Image does not use SEH; no SE handler may
+                                       be called in this image
+  --no-bind                  No enlaza esta imagen
+  --wdmdriver                El controlador usa el modelo WDB
+  --tsaware                  La imagen funciona con Terminal Server
+  --build-id[=ESTILO]        Genera ID de build
+i386pe: 
+  --base_file <ficherobase>          Genera un fichero base para DLLs reubicables
+  --dll                              Establece la imagen base por defecto para las DLLs
+  --file-alignment <tamaño>          Establece el fichero de alineación
+  --heap <tamaño>                    Establece el tamaño inicial del montón
+  --image-base <dirección>           Establece la dirección de inicio del ejecutable
+  --major-image-version <número>     Establece el número de versión del ejecutable
+  --major-os-version <número>        Establece la versión mínima requerida del SO
+  --major-subsystem-version <número> Establece la versión mínima requerida del subsistema del SO
+  --minor-image-version <número>     Establece el número de revisión del ejecutable
+  --minor-os-version <número>        Establece la revisión mínima requerida del SO
+  --minor-subsystem-version <número> Establece la revisión mínima requerida del subsistema del SO
+  --section-alignment <tamaño>       Establece la alineación de la sección
+  --stack <size>                     Establece el tamaño de la pila inicial
+  --subsystem <nombre>[:<versión>]   Establece el subsistema [y versión] requeridos del SO
+  --support-old-code                 Admite interoperar con código antiguo
+  --[no-]leading-underscore          Establece el modo explícito de prefijo de símbolo con subrayado
+  --thumb-entry=<símbolo>            Establece el punto de entrada para el símbolo Thumb <símbolo>
+  --[no-]insert-timestamp            Utiliza marca de sello real en lugar de cero (opción predefinida).
+                                     Produce binarios no deterministas
+  --add-stdcall-alias                Exporta símbolos con y sin @nn
+  --disable-stdcall-fixup            No enlaza _sym con _sym@nn
+  --enable-stdcall-fixup             Enlaza _sym con _sym@nn sin avisos
+  --exclude-symbols sim,sim,...      Excluye símbolos de la exportación automática
+  --exclude-all-symbols              Excluye todos los símbolos de la exportación automática
+  --exclude-libs bib,bib,...         Excluye bibliotecas de la exportación automática
+  --exclude-modules-for-implib mod,mod,...
+                                     Excluye objetos, miembros de archivo de la exportación
+                                     automática, los coloca en la biblioteca de importación.
+  --export-all-symbols               Exporta automáticamente todos los globales a la DLL
+  --kill-at                          Elimina @nn de los símbolos exportados
+  --output-def <fichero>             Genera un fichero .DEF para la DLL construida
+  --warn-duplicate-exports           Avisa sobre exportaciones duplicadas
+  --compat-implib                    Crea bibliotecas de importación compatibles hacia atrás;
+                                       crea además __imp_<SÍMBOLO>.
+  --enable-auto-image-base[=<direc>]   Escoge automáticamente la base de la imagen para las DLLs
+                                       (opcionalmente empezando con direc salvo que
+                                       se establezca específicamente con --image-base
+  --disable-auto-image-base          No escoge automáticamente una imagen base. (por defecto)
+  --dll-search-prefix=<cadena>       Al enlazar dinámicamente con una dll sin una
+                                       biblioteca de importación, usa <cadena><nombrebase>.dll 
+                                       en lugar de lib<nombrebase>.dll 
+  --enable-auto-import               Hace enlazado sofisticado de _sym a
+                                       __imp_sym para las referencias DATA
+  --disable-auto-import              No importa automáticamente elementos DATA de las DLLs
+  --enable-runtime-pseudo-reloc      Evita limitaciones de autoimportación
+                                       agregando pseudo-reubicaciones resueltas
+                                       al momento de ejecución.
+  --disable-runtime-pseudo-reloc     No agrega pseudo-reubicaciones al momento
+                                       de ejecución para DATOS autoimportados.
+  --enable-extra-pe-debug            Activa la salida de depuración detallada al construir
+                                       o enlazar a DLLs (en part. con auto-importación)
+  --large-address-aware              El ejecutable admite direcciones
+                                       virtuales mayores a 2 gigabytes
+  --disable-large-address-aware      El ejecutable no admite direcciones
+                                       virtuales mayores que 2 gigabytes
+  --enable-long-section-names        Usa nombres de sección COFF largos aún
+                                      en ficheros de imágenes ejecutables
+  --disable-long-section-names       Nunca usa nombres de sección COFF largos,
+                                       aún en ficheros objeto
+  --dynamicbase                      La dirección base de la imagen se puede
+                                       reubicar usando la disposición aleatoria
+                                       del espacio de direcciones (en inglés: ASLR)
+  --enable-reloc-section             Crea la tabla de reubicación de base
+  --forceinteg               Activa la revisión de integridad de código
+  --nxcompat                 La imagen es compatible con la prevención de ejecución de datos
+  --no-isolation             La imagen entiende aislamiento, pero no aísla la imagen
+  --no-seh                   La imagen no usa SEH. No se puede llamar
+                                       un manejador SE en esta imagen
+  --no-bind                  No enlaza esta imagen
+  --wdmdriver                El controlador usa el modelo WDB
+  --tsaware                  La imagen funciona con Terminal Server
+  --build-id[=ESTILO]        Genera ID de build
+
+Reporte bichos a <http://www.sourceware.org/bugzilla/>
